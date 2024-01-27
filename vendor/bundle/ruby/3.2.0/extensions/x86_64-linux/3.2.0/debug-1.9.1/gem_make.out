@@ -1,0 +1,19 @@
+current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
+/home/hirintsoa/.rbenv/versions/3.2.3/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm clean
+
+current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20240125-20424-of0xcm/debug
+
+current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm clean
