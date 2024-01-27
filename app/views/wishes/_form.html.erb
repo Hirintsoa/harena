@@ -1,0 +1,42 @@
+<%= form_with(model: wish) do |form| %>
+  <% if wish.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(wish.errors.count, "error") %> prohibited this wish from being saved:</h2>
+
+      <ul>
+        <% wish.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :estimation, style: "display: block" %>
+    <%= form.number_field :estimation %>
+  </div>
+
+  <div>
+    <%= form.label :priority, style: "display: block" %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div>
+    <%= form.label :activity_id, style: "display: block" %>
+    <%= form.text_field :activity_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

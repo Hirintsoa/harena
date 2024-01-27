@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  estimation: 1
+  priority: 9.99
+  activity: one
+
+two:
+  name: MyString
+  description: MyText
+  estimation: 1
+  priority: 9.99
+  activity: two
