@@ -32,6 +32,22 @@
   </div>
 
   <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <%
+=begin%>
+ <div>
+    <%= form.fields_for :comment do |comment_form| %>
+        <%= comment_form.label :comment, style: "display: block" %>
+        <%= comment_form.text_area :comment %>
+    <% end %>
+  </div> 
+<%
+=end%>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

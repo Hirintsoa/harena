@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :wishes
-  resources :incomes
-  resources :expenses
-  resources :activities
+  root 'dashboard#index'
+
+  resources :activities do
+    resources :wishes
+    resources :incomes
+    resources :expenses
+  end
+
   devise_for :accounts, path: 'auth', controllers: {
                                                     sessions: 'accounts/sessions',
                                                     registrations: 'accounts/registrations'

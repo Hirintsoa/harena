@@ -48,7 +48,6 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 # Tracks records versions. See https://github.com/palkan/logidze
-gem "logidze", "~> 1.1"
 
 # See https://github.com/bensheldon/good_job
 gem 'good_job'
@@ -81,3 +80,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "paper_trail", "~> 15.1"
