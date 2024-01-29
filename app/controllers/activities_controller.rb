@@ -14,11 +14,11 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
   end
-
+  
   # GET /activities/1/edit
   def edit
   end
-
+  
   # POST /activities or /activities.json
   def create
     @activity = Activity.new(activity_params)
@@ -50,7 +50,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1 or /activities/1.json
   def destroy
     @activity.destroy!
-
+    
     respond_to do |format|
       format.html { redirect_to activities_url, notice: "Activity was successfully destroyed." }
       format.json { head :no_content }
