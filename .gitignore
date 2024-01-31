@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle/ruby
 
 # Ignore all environment files (except templates).
 /.env*
@@ -38,3 +39,6 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Ignore data folder as its content is bound to the local db
+/data

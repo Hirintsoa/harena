@@ -7,3 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require Rails.root.join('db', 'faker_populator.rb')
+
+FakerPopulator.new.call
