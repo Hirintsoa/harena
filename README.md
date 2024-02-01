@@ -1,24 +1,50 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project aims to be a simple app for "simple" use cases with a focus on giving quicker overview of the cash flow and simulating projection on the future.
 
-Things you may want to cover:
+## Underlying system overview
 
-* Ruby version
+![Background jobs](/public/harena-background-jobs.excalidraw.png)
 
-* System dependencies
+## Technologies
 
-* Configuration
+The project is built using the following technologies:
 
-* Database creation
+### Frontend
 
-* Database initialization
++ esbuild
++ tailwindcss
++ daisyUI
 
-* How to run the test suite
+### Backend
 
-* Services (job queues, cache servers, search engines, etc.)
++ Rails 7.1
++ Noticed gem
++ Good job gem
++ Devise gem
++ Rspec gem
++ Papertrail gem
++ Postgresql 15
 
-* Deployment instructions
+## Running the application locally
 
-* ...
+Clone the repository:
+
+```sh
+  git clone  https://github.com/Hirintsoa/harena.git
+```
+
+Install the necessary gems and packages:
+
+```sh
+  cd harena &  bundle install --path vendor/bundle
+  yarn  install
+```
+
+Launch the servers:
+
+```sh
+  ./bin/dev
+```
+
+Chech out `http://localhost:3000/`
