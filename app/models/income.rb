@@ -1,3 +1,2 @@
-class Income < ApplicationRecord
-  belongs_to :activity
+class Income < Movement
 end

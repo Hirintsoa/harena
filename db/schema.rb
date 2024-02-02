@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_090314) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_02_085107) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
@@ -96,16 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_090314) do
     t.string "country_code", null: false
   end
 
-  create_table "expenses", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "amount"
-    t.bigint "activity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_expenses_on_activity_id"
-  end
-
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -185,14 +175,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_090314) do
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
-  create_table "incomes", force: :cascade do |t|
+  create_table "movements", force: :cascade do |t|
+    t.string "type"
     t.string "name"
     t.text "description"
     t.decimal "amount"
     t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_incomes_on_activity_id"
+    t.index ["activity_id"], name: "index_movements_on_activity_id"
   end
 
   create_table "user_currencies", force: :cascade do |t|
@@ -232,8 +223,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_090314) do
   add_foreign_key "automations", "activities"
   add_foreign_key "automations", "configurations"
   add_foreign_key "config_exceptions", "configurations"
-  add_foreign_key "expenses", "activities"
-  add_foreign_key "incomes", "activities"
+  add_foreign_key "movements", "activities"
   add_foreign_key "user_currencies", "accounts"
   add_foreign_key "user_currencies", "currencies"
   add_foreign_key "wishes", "activities"

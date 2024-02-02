@@ -1,3 +1,2 @@
-class Expense < ApplicationRecord
-  belongs_to :activity
+class Expense < Movement
 end
