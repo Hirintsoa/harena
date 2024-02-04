@@ -61,6 +61,12 @@ group :development, :test do
 
   # See https://github.com/faker-ruby/faker
   gem 'faker'
+
+  # See https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 6.1.0'
+
+  # See https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
 end
 
 group :development do
