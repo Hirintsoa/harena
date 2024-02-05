@@ -12,7 +12,8 @@ Rails.application.configure do
       master: {
         cron: '5 0 */1 */1 *',
         class: 'MasterJob',
-        description: 'Daily jobs launcher'
+        description: 'Daily jobs launcher',
+        set: { priority: 3 }
       },
     },
     dashboard_default_locale: :en,
