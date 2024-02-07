@@ -41,7 +41,7 @@ checked program was:
 /* end */
 
 LD_LIBRARY_PATH=.:/home/hirintsoa/.rbenv/versions/3.2.3/lib "gcc -o conftest -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/x86_64-linux -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/ruby/backward -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0 -I.    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef  -fPIC conftest.c  -L. -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -lruby  -lm -lpthread  -lc"
-/usr/bin/ld: /tmp/ccJGWQuF.o: in function `t':
+/usr/bin/ld: /tmp/ccyWt5GR.o: in function `t':
 /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/io-console-0.7.2/ext/io/console/conftest.c:15: undefined reference to `rb_io_path'
 collect2: error: ld returned 1 exit status
 checked program was:
@@ -201,7 +201,7 @@ checked program was:
 /* end */
 
 LD_LIBRARY_PATH=.:/home/hirintsoa/.rbenv/versions/3.2.3/lib "gcc -o conftest -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/x86_64-linux -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/ruby/backward -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0 -I.    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef  -fPIC conftest.c  -L. -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -lruby  -lm -lpthread  -lc"
-/usr/bin/ld: /tmp/ccjKKulS.o: in function `t':
+/usr/bin/ld: /tmp/cctw604V.o: in function `t':
 /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/io-console-0.7.2/ext/io/console/conftest.c:15: undefined reference to `rb_io_closed_p'
 collect2: error: ld returned 1 exit status
 checked program was:
@@ -256,7 +256,7 @@ checked program was:
 /* end */
 
 LD_LIBRARY_PATH=.:/home/hirintsoa/.rbenv/versions/3.2.3/lib "gcc -o conftest -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/x86_64-linux -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0/ruby/backward -I/home/hirintsoa/.rbenv/versions/3.2.3/include/ruby-3.2.0 -I.    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef  -fPIC conftest.c  -L. -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/home/hirintsoa/.rbenv/versions/3.2.3/lib -L/home/hirintsoa/.rbenv/versions/3.2.3/lib -lruby  -lm -lpthread  -lc"
-/usr/bin/ld: /tmp/ccxrdy7u.o: in function `t':
+/usr/bin/ld: /tmp/ccndwrLd.o: in function `t':
 /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/io-console-0.7.2/ext/io/console/conftest.c:15: undefined reference to `rb_io_open_descriptor'
 collect2: error: ld returned 1 exit status
 checked program was:

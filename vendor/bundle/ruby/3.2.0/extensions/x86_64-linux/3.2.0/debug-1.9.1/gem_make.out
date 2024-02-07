@@ -3,17 +3,17 @@ current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.
 creating Makefile
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-rtzhu6 sitelibdir\=./.gem.20240206-196299-rtzhu6 clean
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-rtzhu6 sitelibdir\=./.gem.20240206-196299-rtzhu6
 compiling debug.c
 compiling iseq_collector.c
 linking shared-object debug/debug.so
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm install
-/usr/bin/install -c -m 0755 debug.so ./.gem.20240125-20424-of0xcm/debug
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-rtzhu6 sitelibdir\=./.gem.20240206-196299-rtzhu6 install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20240206-196299-rtzhu6/debug
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/debug-1.9.1/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-of0xcm sitelibdir\=./.gem.20240125-20424-of0xcm clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-rtzhu6 sitelibdir\=./.gem.20240206-196299-rtzhu6 clean

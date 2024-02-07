@@ -6,10 +6,10 @@ checking for altzone in time.h with  -Werror... no
 creating Makefile
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-dvgxiu sitelibdir\=./.gem.20240125-20424-dvgxiu clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-com3i1 sitelibdir\=./.gem.20240206-196299-com3i1 clean
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-dvgxiu sitelibdir\=./.gem.20240125-20424-dvgxiu
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-com3i1 sitelibdir\=./.gem.20240206-196299-com3i1
 compiling date_core.c
 compiling date_parse.c
 compiling date_strftime.c
@@ -17,8 +17,8 @@ compiling date_strptime.c
 linking shared-object date_core.so
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-dvgxiu sitelibdir\=./.gem.20240125-20424-dvgxiu install
-/usr/bin/install -c -m 0755 date_core.so ./.gem.20240125-20424-dvgxiu
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-com3i1 sitelibdir\=./.gem.20240206-196299-com3i1 install
+/usr/bin/install -c -m 0755 date_core.so ./.gem.20240206-196299-com3i1
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-dvgxiu sitelibdir\=./.gem.20240125-20424-dvgxiu clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-com3i1 sitelibdir\=./.gem.20240206-196299-com3i1 clean

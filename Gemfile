@@ -90,3 +90,7 @@ group :test do
 end
 
 gem "paper_trail", "~> 15.1"
+
+gem "noticed", "~> 2.1"
+
+gem "actioncable-enhanced-postgresql-adapter", "~> 1.0"

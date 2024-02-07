@@ -32,17 +32,17 @@ checking for RB_WARN_CATEGORY_DEPRECATED in ruby.h... yes
 creating Makefile
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.6/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-m2gur3 sitelibdir\=./.gem.20240125-20424-m2gur3 clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-tro6wa sitelibdir\=./.gem.20240206-196299-tro6wa clean
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.6/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-m2gur3 sitelibdir\=./.gem.20240125-20424-m2gur3
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-tro6wa sitelibdir\=./.gem.20240206-196299-tro6wa
 compiling bigdecimal.c
 compiling missing.c
 linking shared-object bigdecimal.so
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.6/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-m2gur3 sitelibdir\=./.gem.20240125-20424-m2gur3 install
-/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20240125-20424-m2gur3
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-tro6wa sitelibdir\=./.gem.20240206-196299-tro6wa install
+/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20240206-196299-tro6wa
 
 current directory: /home/hirintsoa/harena/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.6/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20240125-20424-m2gur3 sitelibdir\=./.gem.20240125-20424-m2gur3 clean
+make DESTDIR\= sitearchdir\=./.gem.20240206-196299-tro6wa sitelibdir\=./.gem.20240206-196299-tro6wa clean
