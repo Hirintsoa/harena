@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_02_085107) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_233444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
@@ -204,6 +204,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_02_085107) do
     t.text "object"
     t.datetime "created_at"
     t.text "object_changes"
+    t.text "comment"
+    t.string "ip"
+    t.string "user_agent"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 

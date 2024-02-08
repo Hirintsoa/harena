@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_activity, only: %i[ show edit update destroy ]
 
   # GET /activities or /activities.json
@@ -36,6 +37,7 @@ class ActivitiesController < ApplicationController
 
   # PATCH/PUT /activities/1 or /activities/1.json
   def update
+    debugger
     respond_to do |format|
       if @activity.update(activity_params)
         format.html { redirect_to activity_url(@activity), notice: "Activity was successfully updated." }
@@ -61,6 +63,10 @@ class ActivitiesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_activity
     @activity = Activity.find(params[:id])
+  end
+
+  def info_for_paper_trail
+    super.merge({comment: params[:comment]})
   end
   
   # Only allow a list of trusted parameters through.

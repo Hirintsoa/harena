@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def info_for_paper_trail
-    { user_agent: request.user_agent, comment: params[:comment] }
+    { ip: request&.remote_ip, user_agent: request&.user_agent } if account_signed_in?
   end
 end
