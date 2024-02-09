@@ -25,14 +25,11 @@ class NewTransactionNotifier < ApplicationNotifier
 
   # Add required params
   #
-  # required_param :message
+  required_param :message
+
   notification_methods do
     def message
-      "New transaction initiated by #{params[:initiator]} on #{self.created_at}"
-    end
-
-    def url
-      activity_path self.record
+      params[:message]
     end
   end
 end

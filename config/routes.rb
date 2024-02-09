@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   mount GoodJob::Engine => 'good_job'
+  mount ActionCable.server => '/cable'
 
   # Defines the root path route ("/")
   # root "posts#index"
