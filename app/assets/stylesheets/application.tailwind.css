@@ -1,9 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "./form.css";
+
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html, body {
-  @apply w-full h-full m-0 p-0;
+  @apply w-full h-full m-0 p-0 text-[14px] md:text-[16px] lg:text-[18px];
 }
 
 * {
