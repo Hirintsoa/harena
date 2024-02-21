@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import Form__AutomationController from "./form/automation_controller"
+application.register("form--automation", Form__AutomationController)
+
+import Form__ConfigurationController from "./form/configuration_controller"
+application.register("form--configuration", Form__ConfigurationController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

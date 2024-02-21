@@ -10,6 +10,11 @@ select {
   @apply select select-bordered;
 }
 
+option {
+  @apply capitalize p-2;
+  background-color: red !important;
+}
+
 .form-field {
   @apply flex flex-col space-y-2 my-2;
 }
