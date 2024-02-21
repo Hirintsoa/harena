@@ -1,0 +1,68 @@
+<%= turbo_frame_tag current_account do %>
+  <%= form_with url: activity_new_movement_configuration_step_path,
+                method: :post,
+                class: 'flex flex-col w-1/2 space-y-4 mx-auto py-4',
+                data: {controller: "form--configuration"} do |f| %>
+
+    <%# f.hidden_field :movement_id, value: @movement.id %>
+
+    <div class='grid grid-cols-2 gap-4'>
+      <div class='form-field'>
+        <%= f.label :range_amount, class: ['required'] %>
+        <%= f.number_field :range_amount, max: 6 %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :base, class: ['required'] %>
+        <%= f.select :base,
+                      Configuration::BASE_OPTIONS,
+                      {},
+                      data: {action: "change->form--configuration#change"},
+                      class: ['w-3/4', 'min-w-xs'],
+                      required: true %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :automatic %>
+
+      <div class="flex items-center space-x-4 cursor-pointer max-w-sm">
+        <%= f.check_box :automatic, class: 'checkbox', checked: true %>
+        <span class="label-text">
+          Automatic: no confirmation notification/mail requested.
+        </span>
+      </div>
+    </div>
+
+    <section id="exceptions" data-controller="form--configuration">
+      <h2 class="font-semibold text-xl pb-2">Exceptions</h2>
+
+      <article class='relative border-l border-white p-2 pl-4 bg-secondary/5 my-2'>
+        <div class="form-field">
+          <%= f.label :exception, class: ['required'] %>
+          <%= f.select :exception,
+                        Configuration::EXCEPTION_OPTIONS,
+                        {},
+                        class: ['w-3/4', 'min-w-xs'],
+                        data: { action: 'change->form--configuration#exception_changed' },
+                        required: true %>
+        </div>
+
+        <div class="addons form-field"></div>
+      </article>
+
+      <button class='btn btn-ghost btn-sm' type="button" data-action='form--configuration#add_exception'>
+        Add Exception
+        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="white">
+          <path d="m11 11h-7.25c-.414 0-.75.336-.75.75s.336.75.75.75h7.25v7.25c0 .414.336.75.75.75s.75-.336.75-.75v-7.25h7.25c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-7.25v-7.25c0-.414-.336-.75-.75-.75s-.75.336-.75.75z" fill-rule="nonzero"/>
+        </svg>
+      </button>
+    </section>
+
+    <%= f.submit 'Create',
+                class: ['inline-block', 'btn', 'btn-primary', 'w-2/3', 'my-4', 'mx-auto'],
+                data: { turbo_frame: '_top' } %>
+  <% end %>
+<% end %>
+
+<%= @console %>

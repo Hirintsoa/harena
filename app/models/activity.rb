@@ -14,6 +14,7 @@ class Activity < ApplicationRecord
   ## Associations
   has_many :activity_participants
   has_many :accounts, through: :activity_participants
+  has_many :incomes
 
   ## Tracking Changes
   has_paper_trail only: [:balance], on: [:create, :update]

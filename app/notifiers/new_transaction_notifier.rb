@@ -5,7 +5,7 @@
 class NewTransactionNotifier < ApplicationNotifier
   deliver_by :action_cable do |config|
     config.channel = 'TransactionChannel'
-    config.message = ->{ params.merge(user_id: recipient.id, notifications: recipient.notifications) }
+    config.message = ->{ params.merge(user_id: recipient.id, notifications: recipient.notifications.newest_first) }
   end
   
   # deliver_by :email do |config|

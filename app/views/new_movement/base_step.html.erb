@@ -1,0 +1,37 @@
+<%= turbo_frame_tag current_account do %>
+  <%= form_with url: activity_new_movement_base_step_path,
+                method: :post,
+                class: 'flex flex-col w-1/2 space-y-4 mx-auto py-4',
+                data: {controller: "form--automation"} do |f| %>
+    <div class='form-field'>
+      <%= f.label :name, class: ['required'] %>
+      <%= f.text_field :name, required: true %>
+    </div>
+    <div class='form-field'>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class='form-field'>
+      <%= f.label :amount, class: ['required'] %>
+      <%= f.text_field :amount,
+                      required: true,
+                      class: ['w-3/4', 'min-w-xs'],
+                      inputmode: 'decimal',
+                      pattern: "[0-9]*[.,]?[0-9]*" %>
+    </div>
+    <div class='form-field'>
+      <%= f.label :period, class: ['required'] %>
+      <%= f.select :period,
+                        ['immediate', 'delayed', 'recurring'],
+                        {},
+                        data: {action: "change->form--automation#change"},
+                        class: ['w-3/4', 'min-w-xs'],
+                        required: true %>
+    </div>
+    <div class='form-field' data-form--automation-target='addons'>
+    </div>
+    <%= f.submit 'Create',
+                class: ['inline-block', 'btn', 'btn-primary', 'w-2/3', 'my-4', 'mx-auto'],
+                data: {'form--automation-target': "submit"} %>
+  <% end %>
+<% end %>

@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
-
+  # get 'components/automation'
+  get 'new_movement/tag'
+  
   resources :activities do
     resources :wishes
-    resources :incomes
-    resources :expenses
+    resources :incomes, except: %i[ new create ]
+    resources :expenses, except: %i[ new create ]
+    get 'income/new', to: 'new_movement#base_step', defaults: { type: 'income' }
+    get 'expense/new', to: 'new_movement#base_step', defaults: { type: 'expense' }
+    get 'new_movement/back'
+    post 'new_movement/base_step'
+    post 'new_movement/configuration_step'
   end
+
 
   devise_for :accounts, path: 'auth', controllers: {
                                                     sessions: 'accounts/sessions',

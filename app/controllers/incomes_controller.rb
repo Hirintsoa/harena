@@ -10,28 +10,8 @@ class IncomesController < ApplicationController
   def show
   end
 
-  # GET /incomes/new
-  def new
-    @income = Income.new
-  end
-
   # GET /incomes/1/edit
   def edit
-  end
-
-  # POST /incomes or /incomes.json
-  def create
-    @income = Income.new(income_params)
-
-    respond_to do |format|
-      if @income.save
-        format.html { redirect_to income_url(@income), notice: "Income was successfully created." }
-        format.json { render :show, status: :created, location: @income }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @income.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /incomes/1 or /incomes/1.json
