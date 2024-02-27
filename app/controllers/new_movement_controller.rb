@@ -3,18 +3,19 @@ class NewMovementController < ApplicationController
     session[:movement_type] = params[:type]&.classify if request.get?
 
     if request.post?
-      @movement = Movement.new(base_params.merge(type: session[:movement_type], activity_id: params[:activity_id]))
+      @activity = Activity.find(params[:activity_id])
 
       if %w[ immediate delayed ].include? params[:period].downcase
         if params[:period].downcase.eql? 'immediate'
-          OneTimeMovementCreationJob.perform(**job_attrs)
+          OneTimeMovementCreationJob.perform_now(**job_attrs)
         else
+          debugger
           OneTimeMovementCreationJob.set(wait_until: (params[:execution_time].to_datetime + 6.hours)).perform_later(**job_attrs)
         end
 
-        render @movement
+        redirect_to @activity
       else
-        session[:movement] = @movement
+        session[:movement] = Movement.new(base_params.merge(type: session[:movement_type], activity_id: @activity.id))
         render 'new_movement/configuration_step'
       end
     end
@@ -23,24 +24,38 @@ class NewMovementController < ApplicationController
   def configuration_step
     # @movement ||= Movement.find(params[:movement_id])
     if request.post?
-      @configuration = Configuration.new(configuration_params.merge(activity_id: params[:activity_id]))
+      @configuration = Configuration.create!(config_attrs)
+      debugger
+      flash[:notice] = 'flash.created'
+
 
       render Activity.find(params[:activity_id])
     end
   end
 
   def tag
-    template = helpers.public_send("#{tag_params[:type]}_select_tag", tag_params[:order])
+    template = helpers.public_send("#{tag_params[:type]}_select_tag")
     render inline: template
   end
 
   private
 
+  def config_attrs
+    configuration_params.merge(
+                                name: session.dig(:movement, :name),
+                                amount: session.dig(:movement, :amount),
+                                range_amount: params[:range_amount] || 1,
+                                activity_id: params.fetch(:activity_id)
+                              )
+  end
+
   def job_attrs
+    recipient = Activity.find(params[:activity_id]).accounts.ids
+    recipient.delete(current_account.id)
     {
-      record: @movement,
-      recipient: @activity.accounts.delete(current_account),
-      message: "New #{@type.downcase}created: #{base_params[:name]}."
+      attributes: base_params.merge(type: session[:movement_type], activity_id: params[:activity_id]),
+      recipient:,
+      message: "New #{session[:movement_type].downcase} created: #{base_params[:name]}."
     }
   end
 
@@ -49,7 +64,7 @@ class NewMovementController < ApplicationController
   end
 
   def configuration_params
-    params.permit(:name, :base, :range_amount, :amount, :automatic)
+    params.permit(:base, :automatic)
   end
 
   def tag_params

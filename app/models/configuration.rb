@@ -1,5 +1,5 @@
 class Configuration < ApplicationRecord
-  BASE_OPTIONS = %w[daily weekly fortnightly monthly quarterly custom].freeze
+  BASE_OPTIONS = %w[daily weekly fortnightly monthly quarterly].freeze
 
   EXCEPTION_OPTIONS = %w[weekend holiday day month].freeze
 
