@@ -82,7 +82,11 @@ class FakerPopulator
     )
     new_activity.save
 
-    Faker::Number.between(from: 5, to: 25).times { create_wish(new_activity) }
+    Faker::Number.between(from: 5, to: 15).times do
+      new_config = create_configuration(new_activity)
+      create_automation(new_activity, new_config)
+      create_wish(new_activity)
+    end
 
     new_activity
   end
@@ -146,6 +150,56 @@ class FakerPopulator
       priority: Faker::Number.between(from: 1, to: 5),
       activity_id: activity.id
     )
+  end
+
+  def create_configuration(activity)
+    is_income = Faker::Boolean.boolean(true_ratio: 0.2)
+    is_automatic = Faker::Boolean.boolean(true_ratio: 0.75)
+    base = (is_income ? ["month", "week"] : ['month', 'week', 'day']).sample
+    new_config = Configuration.create(
+      category: is_income ? 'Income' : 'Expense',
+      name: "#{Faker::Company.suffix} #{is_income ? 'income' : 'expense'}",
+      base: base,
+      range_amount: Faker::Number.between(from: 1, to: 6),
+      automatic: is_automatic,
+      preferred_day: preferred_day(base),
+      amount: is_income ?
+                        Faker::Commerce.price(range: 50..1200.0) :
+                        Faker::Commerce.price(range: 1200..5500)
+    )
+    
+    Faker::Boolean.boolean(true_ratio: 0.15) && create_exception(new_config)
+
+    new_config
+  end
+  
+  def create_automation(activity, configuration)
+    Automation.create(
+      operator_class: 'TransactionOperationJob',
+      activity_id: activity.id,
+      configuration_id: configuration.id,
+      next_execution: Faker::Date.forward(days: 15)
+    )
+  end
+
+  def create_exception(configuration)
+    value = case configuration.base
+            when 'month', 'week'
+              months_of_year.sample
+            when 'day'
+              days_of_week.sample
+            end
+
+    ConfigException.create(configuration_id: configuration.id, value: value)
+  end
+
+  def preferred_day(base)
+    case base
+    when 'month'
+      months_of_year
+    when 'week'
+      days_of_week
+    end&.sample
   end
 
   def days_of_week
