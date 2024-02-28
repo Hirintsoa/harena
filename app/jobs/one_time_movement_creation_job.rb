@@ -3,6 +3,7 @@ class OneTimeMovementCreationJob < ApplicationJob
 
   def perform(attributes:, recipient:, message:)
     new_movement = Movement.create(**attributes)
+    recipient = recipient.map { |rec| Account.find(rec) }
     NewTransactionNotifier.with(record: new_movement, message:).deliver recipient unless recipient.empty?
   end
 end
