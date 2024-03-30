@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = [ 'addons', 'submit' ];
   connect() {
     // We need to wait for Stimulus to fully load before we can manipulate the DOM.
-    console.log('form/automation in da place');
+    console.log('form/automation in da place', this.element.parentElement);
     this.analyze();
   }
 
@@ -17,7 +17,9 @@ export default class extends Controller {
     switch (this.element.querySelector('select#period').value) {
       case 'immediate':
         this.addonsTarget.innerHTML = null;
+        this.submitTarget.dataset.turboFrame = null;
         this.submitTarget.value = 'Create';
+        this.submitTarget.dataset.turboFrame = '_top';
 
         break;
       case 'delayed':
@@ -28,11 +30,13 @@ export default class extends Controller {
                                                 required="required"
                                                 min="${this.tomorrowISODate()}"
                                                 class="w-3/4 min-w-xs">`;
+        this.submitTarget.dataset.turboFrame = '_top';
         this.submitTarget.value = 'Schedule';
 
         break;
       case 'recurring':
         this.addonsTarget.innerHTML = null;
+        this.submitTarget.dataset.turboFrame = null;
         this.submitTarget.value = 'Continue';
 
         break;

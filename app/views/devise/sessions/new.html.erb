@@ -6,6 +6,16 @@
                 url: session_path(resource_name),
                 html: {class: 'form-control flex flex-col items-center space-y-4 p-4'}
               ) do |f| %>
+    <% console %>
+    
+    <% if flash.alert %>
+      <div class="toast toast-top toast-center">
+        <div class="alert alert-info">
+          <span><%= flash.alert %></span>
+        </div>
+      </div>
+    <% end %>
+    
     <label class="w-full max-w-xs">
       <div class="label">
         <span class="label-text">Email</span>

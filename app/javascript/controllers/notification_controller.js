@@ -9,6 +9,7 @@ export default class extends Controller {
     this.sub = this.createActionCableChannel();
     this.sub.perform('mark_as_seen', { id: +elt.target.id });
     this.sub.unsubscribe();
+    this.sub = null;
   }
 
   createActionCableChannel() {

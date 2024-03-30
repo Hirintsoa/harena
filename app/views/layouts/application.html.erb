@@ -11,10 +11,27 @@
   </head>
 
   <body data-theme='business'>
+    <div class="toast toast-top toast-center">
+      <% if flash.alert %>
+        <div class="alert alert-info">
+          <span><%= flash.alert %></span>
+        </div>
+      <% end %>
+
+      <% if flash.notice %>
+        <div class="alert alert-success">
+          <span><%= flash.notice %></span>
+        </div>
+      <% end %>
+    </div>
+
+
     <%= render 'shared/navbar' %>
 
     <%= yield %>
 
     <%= render 'shared/footer' %>
+
+    <%= console %>
   </body>
 </html>

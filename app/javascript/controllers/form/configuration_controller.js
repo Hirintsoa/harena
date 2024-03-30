@@ -11,7 +11,11 @@ export default class extends Controller {
 
   add_exception(e) {
     const parent = e.currentTarget.parentElement;
+    if (parent.querySelectorAll('article').length > 4) {
+      return;
+    }
     let content = parent.querySelector('article').cloneNode(true);
+    content.hidden = false;
     content.querySelector('.addons').innerHTML = null;
     content.insertAdjacentHTML("beforeend", `<button
                                               class='absolute top-2 right-2 btn btn-error min-w-[unset] min-h-[unset] h-8 p-0'
@@ -30,30 +34,14 @@ export default class extends Controller {
   }
 
   async analyze(element) {
-    const id = document.querySelector('section#exceptions').querySelectorAll('article').length;
+    // const id = document.querySelector('section#exceptions').querySelectorAll('article').length;
     let article = element.parentElement.parentElement;
-    switch (element.value) {
-      case 'weekend':
-        article.querySelector('.addons').innerHTML = null;
-
-        break;
-      case 'holiday':
-        article.querySelector('.addons').innerHTML = await this.fetchTag('holiday', id);
-
-        break;
-      case 'day':
-        article.querySelector('.addons').innerHTML = await this.fetchTag('day', id);
-
-        break;
-      case 'month':
-        article.querySelector('.addons').innerHTML = await this.fetchTag('month', id);
-
-        break;
-    }
+    article.querySelector('.addons').innerHTML = (element.value == 'weekend') ? null : await this.fetchTag(element.value);
+    document.querySelector('#select_pattern').querySelector(`option[value=${element.value}]`).remove();
   }
 
-  async fetchTag(type, order) {
-    return await fetch(`/new_movement/tag?tag[type]=${type}&tag[order]=${order}`, { method: 'GET' })
+  async fetchTag(type) {
+    return await fetch(`/new_movement/tag?tag[type]=${type}`, { method: 'GET' })
       .then((response) => response.text())
       .catch((err) =>  console.error(`Fetch error: ${err}`))
   }

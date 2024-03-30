@@ -13,7 +13,6 @@ consumer.subscriptions.create("TransactionChannel", {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     console.log(`Received this via Transaction channel`);
-    console.dir(data)
     this.displayNotification(data);
   },
 

@@ -8,11 +8,15 @@ class TransactionOperator
   end
 
   def call
-    ActiveRecord::Base.transaction do
+    record = ActiveRecord::Base.transaction do
       update_balance
-      create_record
       ExecutionScheduler.new(automation: automation).set_next_execution
+      create_record
     end
+
+    NewTransactionNotifier.with(record:, message:).deliver automation.activity.accounts
+  rescue => err
+    Rails.logger.error err.message 
   end
 
   private
@@ -32,5 +36,9 @@ class TransactionOperator
 
   def define_action
     configuration.category.constantize == Income ? 'add' : 'substract'
+  end
+
+  def message
+    "#{automation.activity.name} activity: New #{operation.to_s.downcase} related to #{configuration.name}."
   end
 end

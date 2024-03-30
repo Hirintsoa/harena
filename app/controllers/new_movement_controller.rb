@@ -8,9 +8,10 @@ class NewMovementController < ApplicationController
       if %w[ immediate delayed ].include? params[:period].downcase
         if params[:period].downcase.eql? 'immediate'
           OneTimeMovementCreationJob.perform_now(**job_attrs)
+          flash[:notice] = "#{session[:movement_type].capitalize} created successfully"
         else
-          debugger
           OneTimeMovementCreationJob.set(wait_until: (params[:execution_time].to_datetime + 6.hours)).perform_later(**job_attrs)
+          flash[:notice] = "#{session[:movement_type].capitalize} scheduled successfully for #{params[:execution_time].to_date.to_fs(:long_ordinal)}"
         end
 
         redirect_to @activity
@@ -25,9 +26,7 @@ class NewMovementController < ApplicationController
     # @movement ||= Movement.find(params[:movement_id])
     if request.post?
       @configuration = Configuration.create!(config_attrs)
-      debugger
-      flash[:notice] = 'flash.created'
-
+      flash[:notice] = "Recurring #{session.fetch(:movement_type)} saved."
 
       render Activity.find(params[:activity_id])
     end

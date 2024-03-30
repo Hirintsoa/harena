@@ -1,27 +1,26 @@
 <%= turbo_frame_tag current_account do %>
+  <h3 class='text-2xl mx-auto'>Configuration for: <%= session.dig('movement').name %></h3>
+
   <%= form_with url: activity_new_movement_configuration_step_path,
                 method: :post,
                 class: 'flex flex-col w-1/2 space-y-4 mx-auto py-4',
                 data: {controller: "form--configuration"} do |f| %>
-
-    <%# f.hidden_field :movement_id, value: @movement.id %>
-
-    <div class='grid grid-cols-2 gap-4'>
-      <div class='form-field'>
-        <%= f.label :range_amount, class: ['required'] %>
-        <%= f.number_field :range_amount, max: 6 %>
-      </div>
-
+    <!--<div class='grid grid-cols-2 gap-4'>-->
       <div class="form-field">
         <%= f.label :base, class: ['required'] %>
         <%= f.select :base,
                       Configuration::BASE_OPTIONS,
-                      {},
+                      {prompt: 'Select time frame base'},
                       data: {action: "change->form--configuration#change"},
-                      class: ['w-3/4', 'min-w-xs'],
+                      class: ['min-w-xs'],
                       required: true %>
       </div>
-    </div>
+
+      <!--<div class='form-field'>-->
+        <%#= f.label :range_amount, class: ['required'] %>
+        <%#= f.number_field :range_amount, max: 6, class: ['w-3/4'] %>
+<!--      </div>
+    </div>-->
 
     <div class="form-field">
       <%= f.label :automatic %>
@@ -37,12 +36,12 @@
     <section id="exceptions" data-controller="form--configuration">
       <h2 class="font-semibold text-xl pb-2">Exceptions</h2>
 
-      <article class='relative border-l border-white p-2 pl-4 bg-secondary/5 my-2'>
+      <article id='select_pattern' class='relative border-l border-white p-2 pl-4 bg-secondary/5 my-2' hidden='hidden'>
         <div class="form-field">
           <%= f.label :exception, class: ['required'] %>
           <%= f.select :exception,
                         Configuration::EXCEPTION_OPTIONS,
-                        {},
+                        { prompt: 'Select type' },
                         class: ['w-3/4', 'min-w-xs'],
                         data: { action: 'change->form--configuration#exception_changed' },
                         required: true %>
@@ -63,6 +62,6 @@
                 class: ['inline-block', 'btn', 'btn-primary', 'w-2/3', 'my-4', 'mx-auto'],
                 data: { turbo_frame: '_top' } %>
   <% end %>
-<% end %>
 
-<%= @console %>
+<%= console %>
+<% end %>
